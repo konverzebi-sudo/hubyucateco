@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yucatán Exprés — Jany Dávila ✦</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+:root{
+  --bg:#FFFFFF;--card:#F4F4F4;--card2:#EBEBEB;
+  --neon:#AADD00;--neon-dim:#8AB800;--neon-glow:#AADD0025;
+  --ink:#0A0A0A;--muted:#888;--border:#DCDCDC;--green2:#4CAF50;
+  --gold:#B07800;--pink:#C0366A;--blue:#1A6FBF;
+  --lujo:#7C3AED;--lujo-bg:#F5F0FF;--lujo-border:#C4B5FD;
+  --medio:#D97706;--medio-bg:#FFFBEB;--medio-border:#FCD34D;
+  --eco:#16A34A;--eco-bg:#F0FDF4;--eco-border:#86EFAC;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',-apple-system,sans-serif;color:var(--ink);font-size:14px;background:var(--bg);min-height:100vh}
+
+/* ── BRAND STRIP ── */
+.brand-strip{background:#F4F4F4;border-bottom:1px solid var(--border);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand-logo{font-size:13px;font-weight:900;letter-spacing:.08em;color:#0A0A0A}
+.brand-logo span{color:var(--muted);font-weight:400}
+.brand-social{display:flex;gap:8px}
+.soc-btn{font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;text-decoration:none;letter-spacing:.04em;border:1px solid}
+.soc-ig{color:#FFFFFF;border-color:#0A0A0A;background:#0A0A0A}
+.soc-tt{color:#FFFFFF;border-color:#0A0A0A;background:#0A0A0A}
+
+.pg{max-width:640px;margin:0 auto;padding:1rem}
+
+/* ── PLAN HEADER ── */
+.plan-header{background:linear-gradient(135deg,#F0F7DC,#FFFFFF);border:1px solid var(--neon);border-radius:14px;padding:16px;margin-bottom:1rem;position:relative;overflow:hidden}
+.plan-header::before{content:'';position:absolute;top:-20px;right:-20px;width:100px;height:100px;background:var(--neon-glow);border-radius:50%;filter:blur(30px)}
+.plan-emoji{font-size:28px;margin-bottom:6px}
+.plan-title{font-size:20px;font-weight:900;color:#0A0A0A;letter-spacing:-.01em}
+.plan-subtitle{font-size:12px;color:var(--muted);margin-top:4px;font-style:italic}
+
+/* ── MAIN NAV ── */
+.main-nav{display:flex;gap:5px;margin-bottom:1.2rem;border-bottom:1px solid var(--border);padding-bottom:.8rem;flex-wrap:wrap}
+.main-tab{padding:6px 14px;border-radius:20px;font-size:11px;font-weight:700;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:inherit;letter-spacing:.04em;transition:all .15s}
+.main-tab:hover{color:var(--ink)}
+.main-tab.on{background:#0A0A0A;color:#AADD00;border-color:#0A0A0A}
+.main-section{display:none}
+.main-section.on{display:block}
+
+/* ── SUMMARY GRID ── */
+.sum-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:1rem}
+.sum-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px;text-align:center}
+.sum-label{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.sum-val{font-size:17px;font-weight:700;color:#0A0A0A}
+.sum-sub{font-size:10px;color:var(--muted);margin-top:2px}
+
+/* ── DAY NAV ── */
+.daynav{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:1rem}
+.dbt{padding:5px 11px;border-radius:20px;font-size:11px;cursor:pointer;border:1px solid var(--border);background:var(--card);color:var(--muted);white-space:nowrap;font-family:inherit;font-weight:600;transition:all .15s}
+.dbt:hover{color:var(--ink);border-color:#999}
+.dbt.on{background:#0A0A0A;color:#AADD00;border-color:#0A0A0A;font-weight:700}
+
+/* ── DAY CARD ── */
+.day-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.1rem;margin-bottom:1rem}
+.day-head{display:flex;align-items:center;gap:12px;margin-bottom:1rem;padding-bottom:.8rem;border-bottom:1px solid var(--border)}
+.day-badge{width:46px;height:46px;border-radius:50%;background:#0A0A0A;border:2px solid var(--neon);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
+.day-num{font-size:15px;font-weight:900;color:#AADD00;line-height:1}
+.day-lbl{font-size:8px;color:#AADD00;letter-spacing:.05em;line-height:1}
+.day-info{flex:1}
+.day-title{font-size:15px;font-weight:700;color:var(--ink)}
+.day-sub{font-size:11px;color:var(--muted);margin-top:3px}
+
+/* ── STOP ROW ── */
+.stop{display:grid;grid-template-columns:44px 1fr auto;gap:8px;padding:8px 0;border-bottom:1px solid #E8E8E8;align-items:start}
+.stop:last-child{border-bottom:none}
+.stop-left{display:flex;flex-direction:column;align-items:center;gap:2px}
+.stop-ico{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:19px;background:#E8E8E8}
+.stop-time{font-size:9px;color:var(--muted);text-align:center;line-height:1.2;margin-top:2px}
+.stop-name{font-size:13px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:5px;flex-wrap:wrap;line-height:1.3}
+.stop-star{color:var(--neon-dim);font-size:12px}
+.stop-desc{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.5}
+.stop-links{display:flex;gap:4px;margin-top:5px;flex-wrap:wrap}
+.lb{font-size:10px;padding:3px 9px;border-radius:6px;text-decoration:none;display:inline-flex;align-items:center;gap:3px;white-space:nowrap;border:none;cursor:pointer;font-family:inherit;font-weight:600}
+.lb-m{background:#E8F2FF;color:#1A4A80;border:1px solid #90B8E8}
+.lb-t{background:#FFF4D0;color:#7A5500;border:1px solid #C89A00}
+.lb-f{background:#EEF8CC;color:#5A7A00;border:1px solid var(--neon)}
+.lb-r{background:#0A0A0A;color:#AADD00;border:1px solid #0A0A0A}
+.stop-cost{font-size:12px;font-weight:700;white-space:nowrap;padding-top:2px}
+.stop-cost.free{color:var(--eco)}
+.stop-cost.paid{color:var(--gold)}
+
+/* ── NAV ARROWS ── */
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;padding-top:.8rem;border-top:1px solid var(--border)}
+.nb{padding:7px 14px;border-radius:9px;font-size:12px;cursor:pointer;border:1px solid #0A0A0A;background:#0A0A0A;color:#FFFFFF;font-family:inherit;font-weight:600}
+.nb:hover:not(:disabled){background:#222;border-color:var(--neon)}
+.nb:disabled{opacity:.2;cursor:default}
+.dots{display:flex;gap:4px;align-items:center}
+.dot{width:5px;height:5px;border-radius:50%;background:#CCCCCC;transition:all .2s}
+.dot.on{background:#0A0A0A;box-shadow:0 0 4px rgba(0,0,0,.3)}
+
+/* ── SECTION HEADER ── */
+.section-hdr{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5A7A00;margin-bottom:.7rem;display:flex;align-items:center;gap:8px}
+.section-hdr::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ── INFO CHIPS ── */
+.chip-row{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+.chip{font-size:10px;padding:3px 9px;border-radius:6px;font-weight:600;background:#EBEBEB;border:1px solid var(--border);color:#555}
+.chip.green{background:#EEF8CC;border-color:var(--neon);color:#5A7A00}
+.chip.gold{background:#FFF4D0;border-color:#C89A00;color:#7A5500}
+.chip.blue{background:#E8F2FF;border-color:#4A90D9;color:#1A4A80}
+.chip.lujo{background:var(--lujo-bg);border-color:var(--lujo-border);color:var(--lujo)}
+
+/* ── TIP BOX ── */
+.tip-box{background:#FFFBEB;border:1px solid #FCD34D;border-radius:10px;padding:10px 12px;margin-top:10px;font-size:11px;color:#7A5500;line-height:1.6}
+
+/* ── CATEGORIA BADGES ── */
+.cat-badge{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-weight:700;padding:2px 8px;border-radius:10px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+.cat-lujo{background:var(--lujo-bg);color:var(--lujo);border:1px solid var(--lujo-border)}
+.cat-medio{background:var(--medio-bg);color:var(--medio);border:1px solid var(--medio-border)}
+.cat-eco{background:var(--eco-bg);color:var(--eco);border:1px solid var(--eco-border)}
+
+/* ── RESTAURANT / HOTEL CARDS ── */
+.venue-section{margin-bottom:1.5rem}
+.venue-header{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;margin-bottom:8px;font-size:11px;font-weight:700}
+.venue-header.lujo{background:var(--lujo-bg);color:var(--lujo);border:1px solid var(--lujo-border)}
+.venue-header.medio{background:var(--medio-bg);color:var(--medio);border:1px solid var(--medio-border)}
+.venue-header.eco{background:var(--eco-bg);color:var(--eco);border:1px solid var(--eco-border)}
+.venue-card{background:#FFFFFF;border:1px solid var(--border);border-radius:12px;padding:12px;margin-bottom:8px}
+.venue-card:last-child{margin-bottom:0}
+.venue-name{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.venue-desc{font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:6px}
+.venue-meta{font-size:10px;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.venue-price{font-size:11px;font-weight:700;color:var(--ink)}
+.afil-btn{font-size:10px;padding:4px 10px;border-radius:8px;text-decoration:none;background:#0A0A0A;color:#AADD00;border:none;cursor:pointer;font-family:inherit;font-weight:700;display:inline-flex;align-items:center;gap:4px}
+
+/* ── SALIDAS CARD ── */
+.salida-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:10px}
+.salida-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.salida-ico{width:44px;height:44px;border-radius:11px;background:#0A0A0A;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.salida-title{font-size:14px;font-weight:700;color:var(--ink)}
+.salida-sub{font-size:10px;color:var(--muted);margin-top:2px}
+.salida-body{font-size:11px;color:var(--muted);line-height:1.6;margin-bottom:10px}
+.transport-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.trans-pill{font-size:10px;padding:3px 10px;border-radius:10px;font-weight:600;display:flex;align-items:center;gap:4px}
+.trans-ado{background:#E8F2FF;color:#1A4A80;border:1px solid #90B8E8}
+.trans-car{background:#EEF8CC;color:#5A7A00;border:1px solid var(--neon)}
+.salida-links{display:flex;gap:6px;flex-wrap:wrap}
+
+/* ── CENOTES MAP ── */
+.cenote-map-wrap{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1rem}
+.cenote-map-header{padding:12px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.cenote-map-title{font-size:13px;font-weight:700;color:var(--ink)}
+.cenote-map-sub{font-size:10px;color:var(--muted);margin-top:1px}
+.map-container{width:100%;height:300px;border:none}
+.cenote-list{padding:10px}
+.cenote-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #E8E8E8}
+.cenote-item:last-child{border-bottom:none}
+.cenote-pin{width:28px;height:28px;border-radius:50%;background:#0A0A0A;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.cenote-info{flex:1}
+.cenote-name{font-size:12px;font-weight:700;color:var(--ink)}
+.cenote-meta{font-size:10px;color:var(--muted);margin-top:2px}
+.cenote-tipo{font-size:9px;padding:2px 7px;border-radius:8px;font-weight:700;margin-top:3px;display:inline-block}
+.tipo-abierto{background:#EEF8CC;color:#5A7A00;border:1px solid var(--neon)}
+.tipo-semi{background:#FFF4D0;color:#7A5500;border:1px solid #C89A00}
+.tipo-cerrado{background:#E8F2FF;color:#1A4A80;border:1px solid #90B8E8}
+
+/* ── PROG BAR ── */
+.prog-wrap{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:1rem;display:flex;align-items:center;gap:12px}
+.prog-bar-wrap{flex:1;background:#E0E0E0;border-radius:6px;height:8px;overflow:hidden}
+.prog-bar{height:100%;background:#0A0A0A;border-radius:6px;transition:width .3s}
+.prog-text{font-size:12px;font-weight:700;color:#0A0A0A;white-space:nowrap}
+
+/* ── PREP ── */
+.prep-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:1rem}
+@media(max-width:400px){.prep-grid{grid-template-columns:1fr}}
+.prep-cat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px}
+.prep-cat-title{font-size:10px;font-weight:700;color:#5A7A00;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.prep-item{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid #E8E8E8;cursor:pointer;user-select:none}
+.prep-item:last-child{border-bottom:none}
+.prep-chk{width:16px;height:16px;border-radius:4px;border:1.5px solid #CCCCCC;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;transition:all .15s}
+.prep-chk.on{background:#0A0A0A;border-color:#0A0A0A;color:#AADD00}
+.prep-label{font-size:12px;color:var(--ink);flex:1;line-height:1.3}
+.prep-label.done{text-decoration:line-through;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<!-- BRAND STRIP -->
+<div class="brand-strip">
+  <div class="brand-logo">JANY DÁVILA <span>· Yucatán Exprés</span></div>
+  <div class="brand-social">
+    <a class="soc-btn soc-ig" href="https://www.instagram.com/jany_antes_vendia_pacas" target="_blank">📸 IG</a>
+    <a class="soc-btn soc-tt" href="https://www.tiktok.com/@pacasmb" target="_blank">🎵 TT</a>
+  </div>
+</div>
+
+<div class="pg">
+
+<!-- PLAN HEADER -->
+<div class="plan-header">
+  <div class="plan-emoji">🌿</div>
+  <div class="plan-title">Yucatán Exprés · 5 Días</div>
+  <div class="plan-subtitle">"La península más mágica de México, con los ojos de Jany."</div>
+  <div class="chip-row">
+    <span class="chip green">5 días</span>
+    <span class="chip gold">Base Mérida</span>
+    <span class="chip blue">Gastronomía · Cenotes · Cultura</span>
+  </div>
+</div>
+
+<div class="sum-grid">
+  <div class="sum-card"><div class="sum-label">Días</div><div class="sum-val">5</div><div class="sum-sub">en Mérida</div></div>
+  <div class="sum-card"><div class="sum-label">Salidas</div><div class="sum-val">8</div><div class="sum-sub">excursiones</div></div>
+  <div class="sum-card"><div class="sum-label">Cenotes</div><div class="sum-val">6+</div><div class="sum-sub">curados</div></div>
+</div>
+
+<!-- MAIN NAVIGATION -->
+<div class="main-nav">
+  <button class="main-tab on" onclick="switchMain('itinerario')">🗺️ Itinerario</button>
+  <button class="main-tab" onclick="switchMain('salidas')">🚌 Salidas</button>
+  <button class="main-tab" onclick="switchMain('comer')">🍽️ Dónde comer</button>
+  <button class="main-tab" onclick="switchMain('dormir')">🏨 Dónde dormir</button>
+  <button class="main-tab" onclick="switchMain('cenotes')">💧 Cenotes</button>
+  <button class="main-tab" onclick="switchMain('mochila')">🎒 Mochila</button>
+</div>
+
+<!-- ═══════════════ ITINERARIO ═══════════════ -->
+<div class="main-section on" id="sec-itinerario">
+
+  <div class="daynav" id="navDays"></div>
+  <div id="dvDays"></div>
+
+</div>
+
+<!-- ═══════════════ SALIDAS ═══════════════ -->
+<div class="main-section" id="sec-salidas">
+
+  <div class="plan-header" style="margin-bottom:1rem">
+    <div class="plan-emoji">🚌</div>
+    <div class="plan-title">Salidas desde Mérida</div>
+    <div class="plan-subtitle">Cada destino con cómo llegar, qué ver y tours recomendados.</div>
+  </div>
+
+  <!-- PROGRESO -->
+  <div class="salida-card">
+    <div class="salida-head">
+      <div class="salida-ico">🌊</div>
+      <div>
+        <div class="salida-title">Puerto Progreso</div>
+        <div class="salida-sub">~35 min desde Mérida · Playa y mariscos</div>
+      </div>
+    </div>
+    <div class="chip-row" style="margin-bottom:8px">
+      <span class="chip green">Medio día</span>
+      <span class="chip gold">$150–$400 MXN comida</span>
+    </div>
+    <div class="salida-body">El puerto más cercano a Mérida. Ideal para un día de playa, mariscos fresquísimos y ver el atardecer en el malecón. El Corchito es una reserva ecológica con manglares y ojos de agua que no te puedes perder. Para los frikis del cosmos: hay un museo del meteorito de Chicxulub, el que mató a los dinosaurios.</div>
+    <div class="section-hdr">Cómo llegar</div>
+    <div class="transport-row">
+      <span class="trans-pill trans-ado">🚌 ADO desde Terminal Centro · ~$80 MXN · 35 min</span>
+      <span class="trans-pill trans-car">🚗 Autopista Mérida-Progreso · Peaje ~$30</span>
+    </div>
+    <div class="salida-links">
+      <a class="lb lb-m" href="https://maps.google.com/?q=Puerto+Progreso+Yucatan" target="_blank">📍 Maps</a>
+      <a class="lb lb-t" href="https://www.ado.com.mx" target="_blank">🚌 ADO horarios</a>
+      <a class="afil-btn" href="#" target="_blank">🎟️ Reservar tour · Viator</a>
+    </div>
+    <div class="tip-box">🤫 <strong>Tip:</strong> Entre semana hay mucha menos gente. Los mejores mariscos están en Crabster Seafood o Eladio's Bar Progreso. El malecón al atardecer es de otro nivel.</div>
+  </div>
+
+  <!-- HOMUN Y CUZAMA -->
+  <div class="salida-card">
+    <div class="salida-head">
+      <div class="salida-ico">💧</div>
+      <div>
+        <div class="salida-title">Homún y Cuzamá · Cenotes</div>
+        <div class="salida-sub">~45 min desde Mérida · Cenotes en troncomóvil</div>
+      </div>
+    </div>
+    <div class="chip-row" style="margin-bottom:8px">
+      <span class="chip green">Medio día – 1 día</span>
+      <span class="chip gold">~$300–$500 MXN tour</span>
+    </div>
+    <div class="salida-body">Una experiencia única: llegas en troncomóvil (una especie de carritos sobre vías de ferrocarril jalados por caballos) hasta los cenotes más espectaculares del estado. Cenote Chelentún, Bolonchojol y Chansinic'ché son los más visitados del circuito. Agua cristalina turquesa y pozos naturales de impacto.</div>
+    <div class="section-hdr">Cómo llegar</div>
+    <div class="transport-row">
+      <span class="trans-pill trans-ado">🚌 ADO o Sur · Terminal Noreste · ~$50 MXN</span>
+      <span class="trans-pill trans-car">🚗 Carretera Mérida-Homún · ~45 min sin cuota</span>
+    </div>
+    <div class="salida-links">
+      <a class="lb lb-m" href="https://maps.google.com/?q=Homun+Yucatan+cenotes" target="_blank">📍 Maps</a>
+      <a class="lb lb-t" href="https://www.ado.com.mx" target="_blank">🚌 ADO horarios</a>
+      <a class="afil-btn" href="#" target="_blank">🎟️ Tour cenotes · Viator</a>
+    </div>
+    <div class="tip-box">🤫 <strong>Tip:</strong> Lleva ropa de baño debajo, sandalias que se mojen, repelente biodegradable (obligatorio para entrar) y efectivo. Los tours incluyen el troncomóvil y guía local.</div>
+  </div>
+
+  <!-- CHICHEN ITZA -->
+  <div class="salida-card">
+    <div class="salida-head">
+      <div class="salida-ico">🏛️</div>
+      <div>
+        <div class="salida-title">Chichén Itzá</div>
+        <div class="salida-sub">~2 hrs desde Mérida · Maravilla del Mundo</div>
+      </div>
+    </div>
+    <div class="chip-row" style="margin-bottom:8px">
+      <span class="chip green">1 día</span>
+      <span class="chip gold">Entrada ~$645 MXN</span>
+    </div>
+    <div class="salida-body">Una de las 7 maravillas del mundo moderno. El Castillo (pirámide de Kukulkán), el Juego de Pelota, el Cenote Sagrado, el Templo de los Guerreros. Lo ideal es llegar antes de las 9am para evitar el calor y las multitudes. Combínalo con una parada en Valladolid o Cenote Ik-Kil de regreso.</div>
+    <div class="section-hdr">Cómo llegar</div>
+    <div class="transport-row">
+      <span class="trans-pill trans-ado">🚌 ADO directo desde Terminal Centro · ~$200 MXN · 2h</span>
+      <span class="trans-pill trans-car">🚗 Autopista Mérida-Cancún · Salida Chichén · ~$180 peaje</span>
+    </div>
+    <div class="salida-links">
+      <a class="lb lb-m" href="https://maps.google.com/?q=Chichen+Itza+Yucatan" target="_blank">📍 Maps</a>
+      <a class="lb lb-t" href="https://www.ado.com.mx" target="_blank">🚌 ADO horarios</a>
+      <a class="afil-btn" href="#" target="_blank">🎟️ Tour + traslado · Viator</a>
+    </div>
+    <div class="tip-box">🤫 <strong>Tip:</strong> Llega a las 8am cuando abre. Después de las 11am el calor y la gente son brutales. Lleva sombrero, protector solar, agua y zapatos cómodos. Los vendedores afuera venden serpientes de madera que suenan genial para recuerdo.</div>
+  </div>
+
+  <!-- VALLADOLID -->
+  <div class="salida-card">
+    <div class="salida-head">
+      <div class="salida-ico">🏙️</div>
+      <div>
+        <div class="salida-title">Valladolid</div>
+        <div class="salida-sub">~2 hrs desde Mérida · Ciudad colonial mágica</div>
+      </div>
+    </div>
+    <div class="chip-row" style="margin-bottom:8px">
+      <span class="chip green">1 día</span>
+      <span class="chip blue">Pueblo Mágico</span>
+    </div>
+    <div class="salida-body">Una de las ciudades coloniales más bonitas de México. El parque principal, el convento de San Bernardino, la calle de los frailes y el cenote Zaci dentro de la ciudad misma. A 30 min está el Cenote Samulá (uno de los más espectaculares del mundo) y el Cenote X'Kekén. Muy buena comida local y artesanías.</div>
+    <div class="section-hdr">Cómo llegar</div>
+    <div class="transport-row">
+      <span class="trans-pill trans-ado">🚌 ADO desde Terminal Centro · ~$180 MXN · 2h</span>
+      <span class="trans-pill trans-car">🚗 Autopista Mérida-Cancún · Salida Valladolid · ~$150 peaje</span>
+    </div>
+    <div class="salida-links">
+      <a class="lb lb-m" href="https://maps.google.com/?q=Valladolid+Yucatan" target="_blank">📍 Maps</a>
+      <a class="lb lb-t" href="https://www.ado.com.mx" target="_blank">🚌 ADO horarios</a>
+      <a class="afil-btn" href="#" target="_blank">🎟️ Tour Valladolid + cenotes · Viator</a>
+    </div>
+    <div class="tip-box">🤫 <strong>Tip:</strong> Combínalo con Chichén Itzá en el mismo día si vas en coche. Come en el mercado central (esquina del parque), los lonches y la cochinita son increíbles y baratos.</div>
+  </div>
+
+  <!-- CELESTUN -->
+  <div class="salida-card">
+    <div class="salida-head">
+      <div class="salida-ico">🦩</div>
+      <div>
+        <div class="salida-title">Celestún</div>
+        <div class="salida-sub">~1.5 hrs desde Mérida · Flamingos y manglares</div>
+      </div>
+    </div>
+    <div class="chip-row" style="margin-bottom:8px">
+      <span class="chip green">1 día</span>
+      <span class="chip gold">Tour lancha ~$300 MXN</span>
+    </div>
+    <div class="salida-body">Reserva de la biósfera con la colonia de flamencos rosados más grande de México. El tour en lancha te lleva a ver los flamencos de muy cerca, los manglares y un ojo de agua en medio de la ría. Espectacular para fotografía. La playa de Celestún es tranquila y los mariscos son muy frescos y económicos.</div>
+    <div class="section-hdr">Cómo llegar</div>
+    <div class="transport-row">
+      <span class="trans-pill trans-ado">🚌 ADO/Oriente desde Terminal Noreste · ~$100 MXN · 1.5h</span>
+      <span class="trans-pill trans-car">🚗 Carretera Mérida-Celestún sin cuota · ~1.5h</span>
+    </div>
+    <div class="salida-links">
+      <a class="lb lb-m" href="https://maps.google.com/?q=Celestun+Yucatan" target="_blank">📍 Maps</a>
+      <a class="lb lb-t" href="https://www.ado.com.mx" target="_blank">🚌 ADO horarios</a>
+      <a class="afil-btn" href="#" target="_blank">🎟️ Tour flamencos · Viator</a>
+    </div>
+    <div class="tip-box">🤫 <strong>Tip:</strong> Ve por la mañana, los flamencos están más activos y la luz para fotos es mejor. El tour en lancha dura aprox 2 horas. Negocia directamente con los lancheros en el muelle.</div>
+  </div>
+
+  <!-- IZAMAL -->
+  <div class="salida-card">
+    <div class="salida-head">
+      <div class="salida-ico">💛</div>
+      <div>
+        <div class="salida-title">Izamal</div>
+        <div class="salida-sub">~1.5 hrs desde Mérida · La ciudad amarilla</div>
+      </div>
+    </div>
+    <div class="chip-row" style="margin-bottom:8px">
+      <span class="chip green">Medio día</span>
+      <span class="chip blue">Pueblo Mágico</span>
+    </div>
+    <div class="salida-body">Todo pintado de amarillo. El convento de San Antonio de Padua está construido sobre una pirámide maya y es impresionante. Las callejas, la calesa (carruaje tirado por caballos), las artesanías y la energía del lugar son únicos. Perfecto para medio día o combinarlo con Chichén Itzá.</div>
+    <div class="section-hdr">Cómo llegar</div>
+    <div class="transport-row">
+      <span class="trans-pill trans-ado">🚌 ADO desde Terminal Oriente · ~$80 MXN · 1.5h</span>
+      <span class="trans-pill trans-car">🚗 Carretera libre Mérida-Izamal · ~1.5h sin cuota</span>
+    </div>
+    <div class="salida-links">
+      <a class="lb lb-m" href="https://maps.google.com/?q=Izamal+Yucatan" target="_blank">📍 Maps</a>
+      <a class="lb lb-t" href="https://www.ado.com.mx" target="_blank">🚌 ADO horarios</a>
+      <a class="afil-btn" href="#" target="_blank">🎟️ Tour día completo · Viator</a>
+    </div>
+    <div class="tip-box">🤫 <strong>Tip:</strong> Date una vuelta en calesa por el centro, es uno de esos momentos que se quedan contigo. El convento al atardecer es mágico para fotos.</div>
+  </div>
+
+  <!-- UXMAL -->
+  <div class="salida-card">
+    <div class="salida-head">
+      <div class="salida-ico">🏺</div>
+      <div>
+        <div class="salida-title">Uxmal · Zona Arqueológica</div>
+        <div class="salida-sub">~1 hr desde Mérida · Arquitectura Puuc</div>
+      </div>
+    </div>
+    <div class="chip-row" style="margin-bottom:8px">
+      <span class="chip green">1 día</span>
+      <span class="chip gold">Entrada ~$550 MXN</span>
+    </div>
+    <div class="salida-body">Para muchos más impresionante que Chichén Itzá y con mucha menos gente. La Pirámide del Adivino, el Cuadrángulo de las Monjas, el Palacio del Gobernador. La arquitectura estilo Puuc es diferente a todo lo que has visto. Por la noche hay show de luces y sonido que es espectacular.</div>
+    <div class="section-hdr">Cómo llegar</div>
+    <div class="transport-row">
+      <span class="trans-pill trans-ado">🚌 ADO desde Terminal Sur · ~$120 MXN · 1.5h</span>
+      <span class="trans-pill trans-car">🚗 Carretera Mérida-Uxmal libre · ~1h</span>
+    </div>
+    <div class="salida-links">
+      <a class="lb lb-m" href="https://maps.google.com/?q=Uxmal+zona+arqueologica+Yucatan" target="_blank">📍 Maps</a>
+      <a class="lb lb-t" href="https://www.ado.com.mx" target="_blank">🚌 ADO horarios</a>
+      <a class="afil-btn" href="#" target="_blank">🎟️ Tour Uxmal · Viator</a>
+    </div>
+    <div class="tip-box">🤫 <strong>Tip:</strong> Combínalo con la Ruta Puuc (Kabah, Sayil, Labná) si vas en coche. El espectáculo de luces nocturno vale mucho la pena si puedes quedarte.</div>
+  </div>
+
+  <!-- BACALAR -->
+  <div class="salida-card">
+    <div class="salida-head">
+      <div class="salida-ico">🏖️</div>
+      <div>
+        <div class="salida-title">Bacalar</div>
+        <div class="salida-sub">~4–5 hrs desde Mérida · El lago de los 7 colores</div>
+      </div>
+    </div>
+    <div class="chip-row" style="margin-bottom:8px">
+      <span class="chip gold">2–3 días ideal</span>
+      <span class="chip blue">Laguna de Bacalar</span>
+    </div>
+    <div class="salida-body">La laguna más bonita de México según muchos. El agua tiene 7 tonos de azul y turquesa dependiendo la hora y el ángulo. El fuerte de San Felipe, el paseo en velero, los cenotes dentro de la laguna y el ambiente relajado y bohemio del pueblo lo hacen diferente a todo. Vale la pena como extensión de 2–3 días.</div>
+    <div class="section-hdr">Cómo llegar</div>
+    <div class="transport-row">
+      <span class="trans-pill trans-ado">🚌 ADO directo · ~$450 MXN · 5–6h (recomendado nocturno)</span>
+      <span class="trans-pill trans-car">🚗 Carretera Mérida-Bacalar · ~4.5h por autopista</span>
+    </div>
+    <div class="salida-links">
+      <a class="lb lb-m" href="https://maps.google.com/?q=Bacalar+Quintana+Roo" target="_blank">📍 Maps</a>
+      <a class="lb lb-t" href="https://www.ado.com.mx" target="_blank">🚌 ADO horarios</a>
+      <a class="afil-btn" href="#" target="_blank">🎟️ Velero en laguna · Viator</a>
+    </div>
+    <div class="tip-box">🤫 <strong>Tip:</strong> Toma el ADO nocturno de Mérida, llegas de madrugada, descansas y tienes 2 días completos. El paseo en velero al atardecer es de las cosas más bonitas que puedes hacer en México.</div>
+  </div>
+
+</div><!-- /sec-salidas -->
+
+<!-- ═══════════════ COMER ═══════════════ -->
+<div class="main-section" id="sec-comer">
+
+  <div class="plan-header" style="margin-bottom:1rem">
+    <div class="plan-emoji">🍽️</div>
+    <div class="plan-title">Dónde comer en Mérida</div>
+    <div class="plan-subtitle">Curado por Jany. Cada lugar tiene su razón de ser.</div>
+  </div>
+
+  <!-- LUJO -->
+  <div class="venue-section">
+    <div class="venue-header lujo">💎 Lujo — La experiencia completa</div>
+
+    <div class="venue-card">
+      <div class="cat-badge cat-lujo">💎 Michelin</div>
+      <div class="venue-name">Huniik</div>
+      <div class="venue-desc">El único restaurante con distinción Michelin en Mérida. Cocina yucateca de autor con técnica de primer nivel. Reserva obligatoria con semanas de anticipación. Una cena aquí es el cierre perfecto de un viaje.</div>
+      <div class="venue-meta">📍 Centro Histórico · 🕖 Cena solamente · 💰 $800–$1,500 MXN pp</div>
+      <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
+        <a class="lb lb-m" href="https://maps.google.com/?q=Huniik+Merida" target="_blank">📍 Maps</a>
+        <a class="afil-btn" href="#" target="_blank">📅 Reservar · [Afiliado]</a>
+      </div>
+    </div>
+
+    <div class="venue-card">
+      <div class="cat-badge cat-lujo">💎 Lujo</div>
+      <div class="venue-name">La Barra de Huniik</div>
+      <div class="venue-desc">La versión más relajada del concepto Huniik. Misma calidad técnica pero en formato de barra y botanas de autor. Más accesible en precio y ambiente más casual, sin sacrificar nivel.</div>
+      <div class="venue-meta">📍 Centro · 💰 $400–$800 MXN pp</div>
+      <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
+        <a class="lb lb-m" href="https://maps.google.com/?q=La+Barra+de+Huniik+Merida" target="_blank">📍 Maps</a>
+      </div>
+    </div>
+
+    <div class="venue-card">
+      <div class="cat-badge cat-lujo">💎 Cocina de autor</div>
+      <div class="venue-name">Nol</div>
+      <div class="venue-desc">Propuesta íntima con enfoque en el origen y el producto. Menú degustación que cambia según la temporada. Para los que quieren algo sofisticado y diferente.</div>
+      <div class="venue-meta">📍 Centro · 💰 $600–$1,200 MXN pp</div>
+      <div style="display:flex;gap:6px;margin-top:8px">
+        <a class="lb lb-m" href="https://maps.google.com/?q=Nol+Restaurante+Merida" target="_blank">📍 Maps</a>
+      </div>
+    </div>
+
+    <div class="venue-card">
+      <div class="cat-badge cat-lujo">💎 Cocina de autor</div>
+      <div class="venue-name">LU|ME</div>
+      <div class="venue-desc">Cocina de autor que honra la herencia gastronómica de Yucatán. Presentaciones impecables, ingredientes de la región y una carta de mezcales y coctelería notable.</div>
+      <div class="venue-meta">📍 Paseo Montejo · 💰 $500–$1,000 MXN pp</div>
+      <div style="display:flex;gap:6px;margin-top:8px">
+        <a class="lb lb-m" href="https://maps.google.com/?q=LUME+Restaurante+Merida" target="_blank">📍 Maps</a>
+      </div>
+    </div>
+
+    <div class="venue-card">
+      <div class="cat-badge cat-lujo">💎 Mar y brasas</div>
+      <div class="venue-name">Micaela Mar y Leña</div>
+      <div class="venue-desc">Cocina de mar y brasas con ingredientes de la península. El pescado y los mariscos al fuego son otra categoría. Uno de los lugares más emocionantes de la escena gastronómica actual de Mérida.</div>
+      <div class="venue-meta">📍 Norte de Mérida · 💰 $500–$900 MXN pp</div>
+      <div style="display:flex;gap:6px;margin-top:8px">
+        <a class="lb lb-m" href="https://maps.google.com/?q=Micaela+Mar+y+Lena+Merida" target="_blank">📍 Maps</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMPERDIBLES -->
+  <div class="venue-section">
+    <div class="venue-header medio">⭐ Imperdibles — Buenos, auténticos y con ambiente</div>
+
+    <div class="venue-card">
+      <div class="cat-badge cat-medio">⭐ Desayuno clásico</div>
+      <div class="venue-name">La Chaya Maya</div>
+      <div class="venue-desc">EL desayuno yucateco por excelencia. Huevos motuleños, panuchos, sopa de lima y aguas de chaya. Siempre hay fila pero vale cada minuto. Obligatorio el primer día.</div>
+      <div class="venue-meta">📍 Centro Histórico · 🕗 Desayuno y comida · 💰 $150–$250 MXN pp</div>
+      <div style="display:flex;gap:6px;margin-top:8px">
+        <a class="lb lb-m" href="https://maps.google.com/?q=La+Chaya+Maya+Merida" target="_blank">📍 Maps</a>
+      </div>
+    </div>
+
+    <div class="venue-card">
+      <div class="cat-badge cat-medio">⭐ Galardonado</div>
+      <div class="venue-name">Ramiro Cocina</div>
+      <div class="venue-desc">Cocina yucateca honesta y bien ejecutada. Recetas de toda la vida con ingredientes de calidad. Premio por sus preparaciones de cochinita, frijol con puerco y pescado tikin xic. El ambiente es muy yucateco.</div>
+      <div class="venue-meta">📍 Centro · 🕛 Comida · 💰 $200–$350 MXN pp</div>
+      <div style="display:flex;gap:6px;margin-top:8px">
+        <a class="lb lb-m" href="https://maps.google.com/?q=Ramiro+Cocina+Merida" target="_blank">📍 Maps</a>
+      </div>
+    </div>
+
+    <div class="venue-card">
+      <div class="cat-badge cat-medio">⭐ Maíces criollos</div>
+      <div class="venue-name">Pancho Maíz</div>
+      <div class="venue-desc">Cocina honesta enfocada en el maíz criollo y los sabores de la milpa yucateca. Uno de los favoritos de los locales. Galardonado por su autenticidad y propuesta gastronómica.</div>
+      <div class="venue-meta">📍 Centro · 💰 $180–$300 MXN pp</div>
+      <div style="display:flex;gap:6px;margin-top:8px">
+        <a class="lb lb-m" href="https://maps.google.com/?q=Pancho+Maiz+Merida" target="_blank">📍 Maps</a>
+      </div>
+    </div>
+
+    <div class="venue-card">
+      <div class="cat-badge cat-medio">⭐ Vista a la catedral</div>
+      <div class="venue-name">La Picheta</div>
+      <div class="venue-desc">Terraza frente a la catedral. El lugar más bonito visualmente para comer en el centro histórico. Comida yucateca correcta con una ubicación insuperable. Ideal para el primer día.</div>
+      <div class="venue-meta">📍 Zócalo, frente a Catedral · 💰 $180–$320 MXN pp</div>
+      <div style="display:flex;gap:6px;margin-top:8px">
+        <a class="lb lb-m" href="https://maps.google.com/?q=La+Picheta+Merida" target="_blank">📍 Maps</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEGA TURISTA / ECO -->
+  <div class="venue-section">
+    <div class="venue-header eco">🎒 Auténtico y económico — Donde comen los locales</div>
+
+    <div class="venue-card">
+      <div class="cat-badge cat-eco">🎒 Cantina tradicional</div>
+      <div class="venue-name">El Tucho</div>
+      <div class="venue-desc">La cantina más legendaria y de más ambiente de Mérida. Comediantes yucatecos con mucho albur, botanas tradicionales que llegan solas con cada bebida y precios muy accesibles. Entre más corriente, más ambiente. No es para todos, pero es 100% auténtico.</div>
+      <div class="venue-meta">📍 Calle 60, frente a Plaza Santa Lucía · 🕔 Mediodía hasta la noche · 💰 $80–$150 MXN pp</div>
+      <div style="display:flex;gap:6px;margin-top:8px">
+        <a class="lb lb-m" href="https://maps.google.com/?q=El+Tucho+Merida" target="_blank">📍 Maps</a>
+      </div>
+    </div>
+
+    <div class="venue-card">
+      <div class="cat-badge cat-eco">🎒 Ambiente familiar</div>
+      <div class="venue-name">Eladio's</div>
+      <div class="venue-desc">Concepto similar al Tucho pero más familiar y menos "de albur". Botanas yucatecas incluidas con cada bebida, ambiente alegre y muy popular entre locales. Hay varios en la ciudad, el de cerca del Museo Maya es muy bueno.</div>
+      <div class="venue-meta">📍 Varias ubicaciones · 💰 $80–$150 MXN pp</div>
+      <div style="display:flex;gap:6px;margin-top:8px">
+        <a class="lb lb-m" href="https://maps.google.com/?q=Eladios+Merida" target="_blank">📍 Maps</a>
+      </div>
+    </div>
+
+    <div class="venue-card">
+      <div class="cat-badge cat-eco">🎒 Mercado</div>
+      <div class="venue-name">Mercado Lucas de Gálvez</div>
+      <div class="venue-desc">El mercado más grande e importante de Mérida. Para desayunar o comer como los locales: cochinita pibil, lonches, panuchos, sopas y aguas frescas. Los precios son muy bajos y la autenticidad es 100%. Hay que ir mínimo una vez.</div>
+      <div class="venue-meta">📍 Centro Histórico · 🕗 Mañana hasta mediodía · 💰 $50–$120 MXN pp</div>
+      <div style="display:flex;gap:6px;margin-top:8px">
+        <a class="lb lb-m" href="https://maps.google.com/?q=Mercado+Lucas+de+Galvez+Merida" target="_blank">📍 Maps</a>
+      </div>
+    </div>
+
+    <div class="venue-card">
+      <div class="cat-badge cat-eco">🎒 Negrita Bar</div>
+      <div class="venue-name">La Negrita Cantina</div>
+      <div class="venue-desc">El aperitivo perfecto para arrancar el viaje. Drinks y botanas yucatecas en un ambiente animado del centro histórico. El lugar perfecto para el primer día: tomar algo rico, probar las botanas locales y entrar en vibra de Mérida.</div>
+      <div class="venue-meta">📍 Centro Histórico · 🕔 Tarde-noche · 💰 $100–$200 MXN pp</div>
+      <div style="display:flex;gap:6px;margin-top:8px">
+        <a class="lb lb-m" href="https://maps.google.com/?q=La+Negrita+Cantina+Merida" target="_blank">📍 Maps</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /sec-comer -->
+
+<!-- ═══════════════ DORMIR ═══════════════ -->
+<div class="main-section" id="sec-dormir">
+
+  <div class="plan-header" style="margin-bottom:1rem">
+    <div class="plan-emoji">🏨</div>
+    <div class="plan-title">Dónde dormir en Mérida</div>
+    <div class="plan-subtitle">Para cada presupuesto y estilo. Todos curados.</div>
+  </div>
+
+  <!-- LUJO -->
+  <div class="venue-section">
+    <div class="venue-header lujo">💎 Lujo — Experiencia de otro nivel</div>
+
+    <div class="venue-card">
+      <div class="cat-badge cat-lujo">💎 Top 1 · Mejor del estado</div>
+      <div class="venue-name">Chablé Yucatán</div>
+      <div class="venue-desc">El hotel más exclusivo de la región. Villas privadas con piscina, spa construido alrededor de un cenote propio y gastronomía de primer nivel. Comparable con Aman Resorts o Four Seasons. Perfecto para luna de miel, aniversario o simplemente darse un lujo de vida.</div>
+      <div class="venue-meta">📍 Chocholá (30 min de Mérida) · 💰 desde $8,000 MXN/noche</div>
+      <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
+        <a class="lb lb-m" href="https://maps.google.com/?q=Chable+Yucatan+hotel" target="_blank">📍 Maps</a>
+        <a class="afil-btn" href="https://yucatan.chablehotels.com" target="_blank">🌐 Web oficial</a>
+        <a class="afil-btn" href="#" target="_blank">🛏️ Reservar · [Booking]</a>
+      </div>
+    </div>
+
+    <div class="venue-card">
+      <div class="cat-badge cat-lujo">💎 Hacienda restaurada</div>
+      <div class="venue-name">Hacienda Xcanatún · Angsana</div>
+      <div class="venue-desc">Antigua hacienda restaurada con jardines espectaculares, ambiente romántico y tranquilo. Excelente restaurante. Ideal para quienes buscan lujo con esencia yucateca auténtica, no solo modernidad.</div>
+      <div class="venue-meta">📍 Xcanatún, norte de Mérida · 💰 desde $5,000 MXN/noche</div>
+      <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
+        <a class="lb lb-m" href="https://maps.google.com/?q=Hacienda+Xcanatun+Merida" target="_blank">📍 Maps</a>
+        <a class="afil-btn" href="#" target="_blank">🛏️ Reservar · [Booking]</a>
+      </div>
+    </div>
+
+    <div class="venue-card">
+      <div class="cat-badge cat-lujo">💎 Boutique · Solo adultos</div>
+      <div class="venue-name">Casa Lecanda</div>
+      <div class="venue-desc">Uno de los hoteles boutique más elegantes de Mérida. Solo adultos, servicio excepcional, ubicación privilegiada cerca del Paseo Montejo, piscina y ambiente íntimo. Para una escapada romántica dentro de la ciudad.</div>
+      <div class="venue-meta">📍 Paseo Montejo, Centro · 💰 desde $3,500 MXN/noche</div>
+      <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
+        <a class="lb lb-m" href="https://maps.google.com/?q=Casa+Lecanda+Merida" target="_blank">📍 Maps</a>
+        <a class="afil-btn" href="#" target="_blank">🛏️ Reservar · [Booking]</a>
+      </div>
+    </div>
+
+    <div class="venue-card">
+      <div class="cat-badge cat-lujo">💎 El más instagrameable</div>
+      <div class="venue-name">CIGNO Ermita Hotel</div>
+      <div class="venue-desc">Diseño espectacular y uno de los hoteles más fotogénicos de México. Cada rincón es una foto. Perfecto para una escapada romántica o para el contenido de redes. El barrio de la Ermita tiene mucho carácter.</div>
+      <div class="venue-meta">📍 Barrio de la Ermita · 💰 desde $2,500 MXN/noche</div>
+      <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
+        <a class="lb lb-m" href="https://maps.google.com/?q=CIGNO+Ermita+Hotel+Merida" target="_blank">📍 Maps</a>
+        <a class="afil-btn" href="#" target="_blank">🛏️ Reservar · [Booking]</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEDIO -->
+  <div class="venue-section">
+    <div class="venue-header medio">⭐ Imperdibles — Buena relación calidad-precio</div>
+
+    <div class="venue-card">
+      <div class="cat-badge cat-medio">⭐ Airbnb · Colonial</div>
+      <div class="venue-name">Villas coloniales en el Centro Histórico</div>
+      <div class="venue-desc">Busca en Airbnb propiedades con piscina privada, techos de doble altura, 2–5 habitaciones y servicio de chef privado. Las casas coloniales de Mérida son increíbles y en Airbnb encuentras joyitas a buen precio comparado con hoteles boutique.</div>
+      <div class="venue-meta">📍 Centro Histórico · 💰 $2,000–$6,000 MXN/noche (propiedad completa)</div>
+      <div style="display:flex;gap:6px;margin-top:8px">
+        <a class="afil-btn" href="https://www.airbnb.com/s/Merida--Yucatan/homes?refinement_paths%5B%5D=%2Fhomes&query=Merida%2C%20Yucatan" target="_blank">🏠 Ver en Airbnb · [Afiliado]</a>
+      </div>
+    </div>
+
+    <div class="venue-card">
+      <div class="cat-badge cat-medio">⭐ Airbnb · Casa con alberca</div>
+      <div class="venue-name">Casa Mango Airbnb</div>
+      <div class="venue-desc">Casa privada moderna con piscina, evaluaciones ⭐⭐⭐⭐⭐ y ambiente muy privado. Ideal para relajarse entre salidas. Una de las recomendaciones más consistentes de Mérida en Airbnb.</div>
+      <div class="venue-meta">📍 Mérida Norte · 💰 ~$1,500–$2,500 MXN/noche</div>
+      <div style="display:flex;gap:6px;margin-top:8px">
+        <a class="afil-btn" href="https://abnb.me/c7rBapkeMxb" target="_blank">🏠 Ver en Airbnb · [Afiliado]</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /sec-dormir -->
+
+<!-- ═══════════════ CENOTES ═══════════════ -->
+<div class="main-section" id="sec-cenotes">
+
+  <div class="plan-header" style="margin-bottom:1rem">
+    <div class="plan-emoji">💧</div>
+    <div class="plan-title">Cenotes de Yucatán</div>
+    <div class="plan-subtitle">Los mejores hoyos de agua del mundo. En serio.</div>
+  </div>
+
+  <div class="tip-box" style="margin-bottom:1rem">💡 <strong>¿Qué es un cenote?</strong> Son pozos de agua subterránea formados por el colapso de roca caliza. Yucatán tiene más de 6,000 cenotes. El agua es cristalina y fresca todo el año. Son sistemas conectados bajo tierra que formaban rutas sagradas para los mayas.</div>
+
+  <!-- MAPA -->
+  <div class="cenote-map-wrap">
+    <div class="cenote-map-header">
+      <div>
+        <div class="cenote-map-title">🗺️ Mapa de cenotes curados</div>
+        <div class="cenote-map-sub">Haz clic en cualquier marcador para ver info</div>
+      </div>
+    </div>
+    <iframe
+      class="map-container"
+      src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d476000!2d-89.62!3d20.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scenotes+yucatan!5e0!3m2!1ses!2smx!4v1700000000000"
+      allowfullscreen loading="lazy">
+    </iframe>
+  </div>
+
+  <!-- LISTA CENOTES -->
+  <div class="day-card">
+    <div class="section-hdr">Cenotes curados por Jany</div>
+
+    <div class="cenote-item">
+      <div class="cenote-pin">💧</div>
+      <div class="cenote-info">
+        <div class="cenote-name">Cenote Kankirixche</div>
+        <div class="cenote-meta">~30 min de Mérida · Abalá · Profundidad: 12m</div>
+        <div><span class="cenote-tipo tipo-semi">Semi-abierto</span></div>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px">Gran cúpula natural con raíces de árbol cayendo al agua. Uno de los más fotogénicos cerca de Mérida. Precio: ~$100 MXN.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <a class="lb lb-m" href="https://maps.google.com/?q=Cenote+Kankirixche+Abala+Yucatan" target="_blank">📍</a>
+      </div>
+    </div>
+
+    <div class="cenote-item">
+      <div class="cenote-pin">💧</div>
+      <div class="cenote-info">
+        <div class="cenote-name">Cenotes de Cuzamá</div>
+        <div class="cenote-meta">~45 min de Mérida · Circuito en troncomóvil</div>
+        <div><span class="cenote-tipo tipo-abierto">Abierto</span></div>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px">Chelentún, Bolonchojol y Chansinic'ché. Tres cenotes en un día jalados por caballos. Experiencia única en Yucatán. ~$300 MXN el circuito.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <a class="lb lb-m" href="https://maps.google.com/?q=Cenotes+Cuzama+Yucatan" target="_blank">📍</a>
+      </div>
+    </div>
+
+    <div class="cenote-item">
+      <div class="cenote-pin">💧</div>
+      <div class="cenote-info">
+        <div class="cenote-name">Cenote X'Batún (Homún)</div>
+        <div class="cenote-meta">~45 min de Mérida · Homún</div>
+        <div><span class="cenote-tipo tipo-semi">Semi-abierto</span></div>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px">Agua turquesa dentro de una cueva natural con apertura circular al cielo. El rayo de luz que entra al mediodía es una de las fotos más espectaculares de Yucatán.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <a class="lb lb-m" href="https://maps.google.com/?q=Cenote+Xbatun+Homun+Yucatan" target="_blank">📍</a>
+      </div>
+    </div>
+
+    <div class="cenote-item">
+      <div class="cenote-pin">💧</div>
+      <div class="cenote-info">
+        <div class="cenote-name">Cenote Samulá</div>
+        <div class="cenote-meta">~30 min de Valladolid · Dzitnup</div>
+        <div><span class="cenote-tipo tipo-cerrado">Cerrado / cueva</span></div>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px">Cueva subterránea con un haz de luz que cae desde el techo sobre agua perfectamente azul. De los cenotes más impresionantes del estado. Combínalo con Valladolid. ~$80 MXN.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <a class="lb lb-m" href="https://maps.google.com/?q=Cenote+Samula+Dzitnup+Yucatan" target="_blank">📍</a>
+      </div>
+    </div>
+
+    <div class="cenote-item">
+      <div class="cenote-pin">💧</div>
+      <div class="cenote-info">
+        <div class="cenote-name">Cenote Yokdzonot</div>
+        <div class="cenote-meta">~20 min de Chichén Itzá · Ruta Cancún-Mérida</div>
+        <div><span class="cenote-tipo tipo-abierto">Abierto</span></div>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px">Cenote gestionado por la comunidad local. Menos turistas, agua increíble y ambiente más auténtico. Perfecto para combinar con Chichén Itzá. ~$100 MXN.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <a class="lb lb-m" href="https://maps.google.com/?q=Cenote+Yokdzonot+Yucatan" target="_blank">📍</a>
+      </div>
+    </div>
+
+    <div class="cenote-item">
+      <div class="cenote-pin">💧</div>
+      <div class="cenote-info">
+        <div class="cenote-name">Cenote Ik-Kil</div>
+        <div class="cenote-meta">~5 min de Chichén Itzá · El más famoso</div>
+        <div><span class="cenote-tipo tipo-abierto">Abierto</span></div>
+        <div style="font-size:10px;color:var(--muted);margin-top:4px">El cenote más fotografiado de Yucatán. Circular, con cascadas de raíces y plataforma de clavados. Sí va mucha gente pero es por algo. Perfecto para combinar con Chichén Itzá. ~$120 MXN.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <a class="lb lb-m" href="https://maps.google.com/?q=Cenote+Ik-Kil+Yucatan" target="_blank">📍</a>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top:12px">🤫 <strong>Reglas de oro para cenotes:</strong> Siempre usa repelente biodegradable (muchos lo exigen para entrar). No uses bloqueador solar convencional — contamina el agua. Lleva ropa de baño debajo, sandalias que se mojen y efectivo. Los cenotes más fotogénicos tienen mejor luz entre 11am–1pm cuando el sol cae directo.</div>
+  </div>
+
+</div><!-- /sec-cenotes -->
+
+<!-- ═══════════════ MOCHILA ═══════════════ -->
+<div class="main-section" id="sec-mochila">
+
+  <div class="plan-header" style="margin-bottom:1rem">
+    <div class="plan-emoji">🎒</div>
+    <div class="plan-title">Checklist para Yucatán</div>
+    <div class="plan-subtitle">No llegues sin esto. El calor no perdona.</div>
+  </div>
+
+  <div class="prog-wrap">
+    <div style="font-size:12px;font-weight:700;white-space:nowrap">Tu progreso</div>
+    <div class="prog-bar-wrap"><div class="prog-bar" id="PROGBAR" style="width:0%"></div></div>
+    <div class="prog-text" id="PROGTEXT">0 / 0</div>
+  </div>
+
+  <div class="prep-grid" id="PREPGRID"></div>
+
+</div><!-- /sec-mochila -->
+
+</div><!-- /pg -->
+
+<script>
+// ════════ DATA ════════
+
+const DAYS = [
+  {
+    day:1, title:'Llegada y primer sabor yucateco', sub:'Centro histórico · Catedral · Noche en el parque',
+    stops:[
+      {ic:'🏨',t:'3:00 pm',name:'Check-in en el hospedaje',desc:'Instálate, refrésate del viaje y deja las maletas. Si puedes llegar antes del mediodía mejor para aprovechar el día.',cost:0},
+      {ic:'🍹',t:'5:00 pm',name:'La Negrita Cantina',desc:'El primer drink en Mérida. Pide una botana yucateca y entra en vibra de la ciudad. Ambiente animado del centro histórico.',cost:1,maps:'https://maps.google.com/?q=La+Negrita+Cantina+Merida'},
+      {ic:'🏛️',t:'6:00 pm',name:'Centro histórico y Catedral',desc:'Camina por el zócalo, entra a la Catedral de Mérida (la más antigua de América), ve las artesanías de los puestos y empápate del ambiente.',cost:0,maps:'https://maps.google.com/?q=Catedral+de+Merida'},
+      {ic:'🍽️',t:'8:00 pm',name:'Cena en La Picheta',desc:'Terraza frente a la catedral. El lugar más bonito para comer en el centro. Pide la sopa de lima y los panuchos. Vista inigualable al atardecer.',cost:1,maps:'https://maps.google.com/?q=La+Picheta+Merida'},
+      {ic:'🎭',t:'9:30 pm',name:'Parquesita del centro o Vaquería',desc:'Los jueves hay Vaquería en la Plaza de Santa Lucía (baile yucateco tradicional, gratis). Cualquier otro día, las parquesitas del centro tienen vida nocturna agradable.',cost:0,maps:'https://maps.google.com/?q=Plaza+Santa+Lucia+Merida'},
+    ]
+  },
+  {
+    day:2, title:'Paseo Montejo + noche de ambiente', sub:'Desayuno clásico · Shopping · Cantina legendaria',
+    stops:[
+      {ic:'🌿',t:'8:30 am',name:'Desayuno en La Chaya Maya',desc:'EL desayuno yucateco. Huevos motuleños, panuchos con cochinita y agua de chaya. Siempre hay fila pero vale la espera.',cost:1,maps:'https://maps.google.com/?q=La+Chaya+Maya+Merida'},
+      {ic:'🚶',t:'10:30 am',name:'Paseo de Montejo',desc:'El bulevar más elegante de Mérida. Mansiones del siglo XIX, galerías de arte, tiendas de artesanías yucatecas finas. Perfecto para caminar y hacer shopping local.',cost:0,maps:'https://maps.google.com/?q=Paseo+de+Montejo+Merida'},
+      {ic:'🍖',t:'1:30 pm',name:'Comida en Ramiro Cocina',desc:'Cocina yucateca honesta y galardonada. Pide el frijol con puerco si es lunes, o el pescado tikin xic. Ambiente muy local.',cost:1,maps:'https://maps.google.com/?q=Ramiro+Cocina+Merida'},
+      {ic:'🏛️',t:'3:30 pm',name:'Museo Maya de Mérida o MACAY',desc:'El Museo Maya tiene colecciones arqueológicas fascinantes. El MACAY (arte contemporáneo) está junto al zócalo y la entrada es libre.',cost:1,maps:'https://maps.google.com/?q=Museo+Maya+Merida'},
+      {ic:'🍺',t:'6:30 pm',name:'El Tucho o Eladio\'s',desc:'Pre-cena en la cantina más legendaria de Mérida. Con cada bebida te traen botanas yucatecas sin costo. Si el albur no es lo tuyo, Eladio\'s tiene el mismo concepto pero más familiar.',cost:1,maps:'https://maps.google.com/?q=El+Tucho+Merida'},
+      {ic:'🌙',t:'8:30 pm',name:'Plaza Santa Lucía o Maguns',desc:'La Plaza Santa Lucía de noche tiene bares y restaurantes con vista al parque. Si quieren antro, la zona de Plaza Maguns tiene opciones para todos los gustos.',cost:1,maps:'https://maps.google.com/?q=Plaza+Santa+Lucia+Merida'},
+    ]
+  },
+  {
+    day:3, title:'Museos + tarde en Progreso', sub:'Cultura · Mariscos · Mar al atardecer',
+    stops:[
+      {ic:'☕',t:'9:00 am',name:'Desayuno en algún café del centro',desc:'Busca una terracita cerca del zócalo para arrancar con calma. El barrio de Santa Ana tiene buenas opciones de café de especialidad.',cost:1},
+      {ic:'🎵',t:'10:00 am',name:'Museo de la Música',desc:'Un museo dedicado a la historia de la música yucateca, la trova y el bolero. Pequeño pero muy bien curado. Entrada muy económica.',cost:1,maps:'https://maps.google.com/?q=Museo+de+la+Musica+Merida'},
+      {ic:'🏛️',t:'11:30 am',name:'Gran Museo del Mundo Maya',desc:'El museo de arqueología maya más completo de Mérida. Piezas impresionantes, multimedia y exposiciones muy bien presentadas. Vale cada minuto.',cost:1,maps:'https://maps.google.com/?q=Gran+Museo+del+Mundo+Maya+Merida'},
+      {ic:'🦞',t:'2:00 pm',name:'Comida en Eladio\'s (cerca del Museo)',desc:'El Eladio\'s más cercano al Museo Maya es perfecto para comer post-visita. Botanas, mariscos y ambiente local.',cost:1,maps:'https://maps.google.com/?q=Eladios+Merida'},
+      {ic:'🌊',t:'4:00 pm',name:'Optional: Puerto Progreso',desc:'Si tienes energía (35 min en coche o ADO), ve a ver el atardecer en el malecón de Progreso. Si no, regresa al hotel a refrescarte. Sin presión.',cost:0,maps:'https://maps.google.com/?q=Malecon+Progreso+Yucatan'},
+    ]
+  },
+  {
+    day:4, title:'Ruta gastronómica yucateca', sub:'Mercado · Sabores reales · Cena Michelin',
+    stops:[
+      {ic:'🫘',t:'8:00 am',name:'Desayuno en el Mercado Lucas de Gálvez',desc:'El mercado más grande e importante de Mérida. Busca un puesto de cochinita pibil o panuchos para desayunar. La autenticidad es 100%.',cost:1,maps:'https://maps.google.com/?q=Mercado+Lucas+de+Galvez+Merida'},
+      {ic:'🛍️',t:'10:00 am',name:'Recorrido por el mercado',desc:'Explora los puestos de especias, recados yucatecos, achiote, chile habanero, artesanías, hamacas y ropa. El mejor lugar para llevar recuerdos auténticos.',cost:0,maps:'https://maps.google.com/?q=Mercado+Lucas+de+Galvez+Merida'},
+      {ic:'🍋',t:'1:00 pm',name:'Comida en Pancho Maíz o La Chaya Maya',desc:'Si no fuiste a Pancho Maíz aún, es el momento perfecto. Su cocina honesta de maíz criollo es uno de los sabores más auténticos de Mérida.',cost:1,maps:'https://maps.google.com/?q=Pancho+Maiz+Merida'},
+      {ic:'💤',t:'3:30 pm',name:'Siesta y hotel',desc:'El calor de las 3pm en Yucatán es serio. Esta es la hora de refrescarse, descansar y prepararse para la cena.',cost:0},
+      {ic:'✨',t:'8:00 pm',name:'Cena en Huniik',desc:'La experiencia gastronómica más importante del viaje. Reserva con anticipación. Cocina yucateca con distinción Michelin. El broche de oro perfecto.',cost:1,maps:'https://maps.google.com/?q=Huniik+Merida'},
+    ]
+  },
+  {
+    day:5, title:'Desayuno de lujo + tour de salida', sub:'Elige tu aventura',
+    stops:[
+      {ic:'🥐',t:'8:30 am',name:'Desayuno en LU|ME o café Paseo Montejo',desc:'Para el último día mereces algo especial. LU|ME abre en las mañanas y es una experiencia diferente para cerrar la estancia. Alternativamente, busca un café boutique en Paseo Montejo.',cost:1,maps:'https://maps.google.com/?q=LUME+Restaurante+Merida'},
+      {ic:'🗺️',t:'10:00 am',name:'Tour de salida a tu elección',desc:'Elige entre las salidas disponibles: cenotes de Homún, Chichén Itzá, Valladolid, Celestún, Izamal o Uxmal. Ve a la sección 🚌 Salidas para todos los detalles.',cost:1},
+      {ic:'🛍️',t:'Regreso',name:'Últimas compras',desc:'De regreso en Mérida, pasa por el Mercado Lucas de Gálvez o alguna tienda de artesanías para llevarte recados, chiles, hamacas o recuerdos.',cost:0},
+    ]
+  }
+];
+
+const PREP_CATS = [
+  {title:'☀️ Para el calor',items:['Protector solar SPF 50+','Sombrero o gorra','Ropa ligera y transpirable','Lentes de sol','Botella de agua reutilizable']},
+  {title:'💧 Para los cenotes',items:['Traje de baño','Sandalias que se mojen','Repelente biodegradable','Toalla de microfibra','Bolsa impermeable para el cel']},
+  {title:'💰 Dinero y docs',items:['Efectivo en pesos (muchos lugares)','Tarjeta de débito/crédito','ID oficial o pasaporte','Número de emergencias anotado']},
+  {title:'🎒 Esenciales',items:['Cargador y power bank','Seguro de viaje','Medicamentos básicos','Pastillas para el estómago','Audífonos']},
+];
+
+// ════════ INIT ════════
+function init(){
+  buildDayNav();
+  renderDayView(0);
+  buildPrep();
+  loadPrep();
+}
+
+// ════════ MAIN NAV ════════
+function switchMain(sec){
+  document.querySelectorAll('.main-tab').forEach((t,i)=>{
+    t.classList.toggle('on',['itinerario','salidas','comer','dormir','cenotes','mochila'][i]===sec);
+  });
+  document.querySelectorAll('.main-section').forEach(s=>s.classList.remove('on'));
+  document.getElementById('sec-'+sec).classList.add('on');
+}
+
+// ════════ ITINERARIO ════════
+function buildDayNav(){
+  const nav = document.getElementById('navDays');
+  nav.innerHTML = DAYS.map((d,i)=>`<button class="dbt ${i===0?'on':''}" onclick="goDay(${i})">Día ${d.day}</button>`).join('');
+}
+
+function goDay(idx){
+  document.querySelectorAll('#navDays .dbt').forEach((b,i)=>b.classList.toggle('on',i===idx));
+  renderDayView(idx);
+}
+
+function renderDayView(idx){
+  const d = DAYS[idx];
+  const dv = document.getElementById('dvDays');
+  const stops = d.stops.map(s=>{
+    const costHtml = s.cost===0 ? `<div class="stop-cost free">Gratis</div>` : `<div class="stop-cost paid">💰</div>`;
+    const links = [
+      s.maps ? `<a class="lb lb-m" href="${s.maps}" target="_blank">📍 Maps</a>` : ''
+    ].filter(Boolean).join('');
+    return `<div class="stop">
+      <div class="stop-left"><div class="stop-ico">${s.ic}</div>${s.t?`<div class="stop-time">${s.t}</div>`:''}</div>
+      <div>
+        <div class="stop-name">${s.name}</div>
+        <div class="stop-desc">${s.desc}</div>
+        ${links?`<div class="stop-links">${links}</div>`:''}
+      </div>
+      ${costHtml}
+    </div>`;
+  }).join('');
+
+  const dots = DAYS.map((_,j)=>`<div class="dot ${j===idx?'on':''}"></div>`).join('');
+  const nav = `<div class="nav-row">
+    <button class="nb" onclick="goDay(${idx-1})" ${idx===0?'disabled':''}>← Anterior</button>
+    <div class="dots">${dots}</div>
+    <button class="nb" onclick="goDay(${idx+1})" ${idx===DAYS.length-1?'disabled':''}>Siguiente →</button>
+  </div>`;
+
+  dv.innerHTML = `<div class="day-card">
+    <div class="day-head">
+      <div class="day-badge"><div class="day-num">${d.day}</div><div class="day-lbl">DÍA</div></div>
+      <div class="day-info">
+        <div class="day-title">${d.title}</div>
+        <div class="day-sub">${d.sub}</div>
+      </div>
+    </div>
+    ${stops}
+    ${nav}
+  </div>`;
+}
+
+// ════════ PREP ════════
+function buildPrep(){
+  const grid = document.getElementById('PREPGRID');
+  grid.innerHTML = PREP_CATS.map((cat,ci)=>`
+    <div class="prep-cat">
+      <div class="prep-cat-title">${cat.title}</div>
+      ${cat.items.map((item,ii)=>`
+        <div class="prep-item" onclick="togglePrep(${ci},${ii})">
+          <div class="prep-chk" id="chk-${ci}-${ii}"></div>
+          <div class="prep-label" id="lbl-${ci}-${ii}">${item}</div>
+        </div>
+      `).join('')}
+    </div>
+  `).join('');
+}
+
+function loadPrep(){
+  const saved = JSON.parse(localStorage.getItem('jd_yuc_prep')||'{}');
+  PREP_CATS.forEach((_,ci)=>{
+    PREP_CATS[ci].items.forEach((_,ii)=>{
+      if(saved[`${ci}-${ii}`]) applyPrep(ci,ii,true);
+    });
+  });
+  updateProgress();
+}
+
+function togglePrep(ci,ii){
+  const key = `${ci}-${ii}`;
+  const saved = JSON.parse(localStorage.getItem('jd_yuc_prep')||'{}');
+  const now = !saved[key];
+  if(now) saved[key]=true; else delete saved[key];
+  localStorage.setItem('jd_yuc_prep', JSON.stringify(saved));
+  applyPrep(ci,ii,now);
+  updateProgress();
+}
+
+function applyPrep(ci,ii,on){
+  const chk = document.getElementById(`chk-${ci}-${ii}`);
+  const lbl = document.getElementById(`lbl-${ci}-${ii}`);
+  if(!chk) return;
+  chk.classList.toggle('on',on);
+  chk.textContent = on?'✓':'';
+  lbl.classList.toggle('done',on);
+}
+
+function updateProgress(){
+  const saved = JSON.parse(localStorage.getItem('jd_yuc_prep')||'{}');
+  const total = PREP_CATS.reduce((s,c)=>s+c.items.length,0);
+  const done = Object.keys(saved).filter(k=>saved[k]).length;
+  const pct = total ? Math.round(done/total*100) : 0;
+  document.getElementById('PROGBAR').style.width = pct+'%';
+  document.getElementById('PROGTEXT').textContent = `${done} / ${total}`;
+}
+
+init();
+</script>
+</body>
+</html>
