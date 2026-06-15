@@ -235,7 +235,197 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--ink);font-size:14p
   <div class="plan-header" style="margin-bottom:1rem">
     <div class="plan-emoji">🚌</div>
     <div class="plan-title">Salidas desde Mérida</div>
-    <div class="plan-subtitle">Cada destino con cómo llegar, qué ver y tours recomendados.</div>
+    <div class="plan-subtitle">Toca cada destino en el mapa para ver cómo llegar y qué hacer.</div>
+  </div>
+
+  <!-- MAPA ILUSTRADO INTERACTIVO -->
+  <div style="background:#111;border-radius:14px;overflow:hidden;margin-bottom:1.2rem">
+    <svg width="100%" viewBox="0 0 680 430" role="img" xmlns="http://www.w3.org/2000/svg">
+      <title>Mapa ilustrado Península Yucateca</title>
+      <desc>Mapa interactivo con iconos ilustrados de los 9 destinos desde Mérida</desc>
+      <rect width="680" height="430" fill="#111"/>
+      <rect width="680" height="430" fill="#0d1a0d" opacity="0.4"/>
+      <!-- silueta -->
+      <path d="M90,60 L210,30 L335,20 L455,34 L555,58 L610,108 L625,172 L615,248 L585,318 L525,378 L445,402 L355,392 L265,370 L185,337 L130,288 L95,222 L82,152 Z" fill="#1c1c1c" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- costa norte -->
+      <path d="M90,60 L210,30 L335,20 L455,34 L555,58" fill="none" stroke="#AADD00" stroke-width="1.8" opacity="0.6"/>
+      <path d="M90,60 L95,222 L130,288" fill="none" stroke="#AADD00" stroke-width="1" opacity="0.3"/>
+      <!-- olas -->
+      <path d="M42,82 Q52,76 62,82 Q72,88 82,82" fill="none" stroke="#AADD00" stroke-width="0.8" opacity="0.2"/>
+      <path d="M42,102 Q52,96 62,102 Q72,108 82,102" fill="none" stroke="#AADD00" stroke-width="0.8" opacity="0.15"/>
+      <path d="M600,72 Q612,66 624,72 Q636,78 648,72" fill="none" stroke="#AADD00" stroke-width="0.8" opacity="0.2"/>
+      <path d="M560,392 Q572,386 584,392 Q596,398 608,392" fill="none" stroke="#AADD00" stroke-width="0.8" opacity="0.2"/>
+      <path d="M580,48 Q592,42 604,48 Q616,54 628,48" fill="none" stroke="#5BB8FF" stroke-width="0.8" opacity="0.2"/>
+      <!-- rutas punteadas desde Mérida -->
+      <line x1="268" y1="187" x2="300" y2="80" stroke="#2d2d2d" stroke-width="1.2" stroke-dasharray="4,4"/>
+      <line x1="268" y1="187" x2="528" y2="68" stroke="#2d2d2d" stroke-width="1.2" stroke-dasharray="4,4"/>
+      <line x1="268" y1="187" x2="408" y2="120" stroke="#2d2d2d" stroke-width="1.2" stroke-dasharray="4,4"/>
+      <line x1="268" y1="187" x2="118" y2="230" stroke="#2d2d2d" stroke-width="1.2" stroke-dasharray="4,4"/>
+      <line x1="268" y1="187" x2="375" y2="184" stroke="#2d2d2d" stroke-width="1.2" stroke-dasharray="4,4"/>
+      <line x1="268" y1="187" x2="462" y2="174" stroke="#2d2d2d" stroke-width="1.2" stroke-dasharray="4,4"/>
+      <line x1="268" y1="187" x2="505" y2="225" stroke="#2d2d2d" stroke-width="1.2" stroke-dasharray="4,4"/>
+      <line x1="268" y1="187" x2="202" y2="275" stroke="#2d2d2d" stroke-width="1.2" stroke-dasharray="4,4"/>
+      <line x1="268" y1="187" x2="492" y2="357" stroke="#2d2d2d" stroke-width="1.2" stroke-dasharray="4,4"/>
+      <!-- PROGRESO: faro -->
+      <g id="mp-progreso" style="cursor:pointer" onclick="mpSel('progreso')">
+        <rect x="294" y="36" width="12" height="22" rx="2" fill="none" stroke="#ccc" stroke-width="1.2"/>
+        <rect x="294" y="41" width="12" height="4" fill="#ccc" opacity="0.3"/>
+        <rect x="294" y="49" width="12" height="4" fill="#ccc" opacity="0.3"/>
+        <path d="M292,36 L308,36 L306,31 L300,28 L294,31 Z" fill="none" stroke="#ccc" stroke-width="1.2"/>
+        <circle cx="300" cy="32" r="3" fill="#AADD00" opacity="0.8"/>
+        <rect x="290" y="58" width="20" height="4" rx="1" fill="none" stroke="#ccc" stroke-width="1"/>
+        <path d="M285,68 Q292,64 300,68 Q308,72 316,68" fill="none" stroke="#5BB8FF" stroke-width="1" opacity="0.6"/>
+        <circle cx="300" cy="80" r="5" fill="#AADD00"/>
+        <text x="300" y="95" text-anchor="middle" font-size="9" font-weight="700" fill="#fff" font-family="Inter,sans-serif">PUERTO</text>
+        <text x="300" y="105" text-anchor="middle" font-size="9" font-weight="700" fill="#fff" font-family="Inter,sans-serif">PROGRESO</text>
+      </g>
+      <!-- EL CUYO: barco pesquero -->
+      <g id="mp-cuyo" style="cursor:pointer" onclick="mpSel('cuyo')">
+        <path d="M510,52 Q514,56 528,56 Q542,56 546,52 L543,48 L513,48 Z" fill="none" stroke="#5BB8FF" stroke-width="1.3"/>
+        <line x1="513" y1="48" x2="543" y2="48" stroke="#5BB8FF" stroke-width="1"/>
+        <line x1="528" y1="48" x2="528" y2="34" stroke="#aaa" stroke-width="1.2"/>
+        <path d="M528,35 L528,46 L519,44 Z" fill="none" stroke="#aaa" stroke-width="1"/>
+        <path d="M528,34 L534,36 L528,38 Z" fill="#AADD00" opacity="0.8"/>
+        <path d="M508,58 Q518,54 528,58 Q538,62 548,58" fill="none" stroke="#5BB8FF" stroke-width="0.8" opacity="0.5"/>
+        <line x1="543" y1="46" x2="552" y2="38" stroke="#888" stroke-width="0.8"/>
+        <line x1="552" y1="38" x2="552" y2="44" stroke="#888" stroke-width="0.6" stroke-dasharray="2,2"/>
+        <circle cx="528" cy="68" r="5" fill="#AADD00"/>
+        <text x="528" y="83" text-anchor="middle" font-size="9" font-weight="700" fill="#fff" font-family="Inter,sans-serif">EL CUYO</text>
+        <text x="528" y="93" text-anchor="middle" font-size="8" fill="#5BB8FF" font-family="Inter,sans-serif">pueblo pesquero</text>
+      </g>
+      <!-- HOMUN: palmeras + cenote -->
+      <g id="mp-homun" style="cursor:pointer" onclick="mpSel('homun')">
+        <line x1="396" y1="120" x2="396" y2="98" stroke="#666" stroke-width="1.2"/>
+        <path d="M396,98 Q388,90 382,92" fill="none" stroke="#4CAF50" stroke-width="1.2"/>
+        <path d="M396,98 Q390,87 396,84" fill="none" stroke="#4CAF50" stroke-width="1.2"/>
+        <path d="M396,98 Q402,88 408,90" fill="none" stroke="#4CAF50" stroke-width="1.2"/>
+        <line x1="406" y1="120" x2="406" y2="100" stroke="#666" stroke-width="1.2"/>
+        <path d="M406,100 Q414,92 420,94" fill="none" stroke="#4CAF50" stroke-width="1.2"/>
+        <path d="M406,100 Q408,89 414,87" fill="none" stroke="#4CAF50" stroke-width="1.2"/>
+        <path d="M406,100 Q400,90 395,92" fill="none" stroke="#4CAF50" stroke-width="1.2"/>
+        <path d="M401,102 Q398,107 401,112 Q404,107 401,102Z" fill="#5BB8FF" opacity="0.7"/>
+        <circle cx="408" cy="120" r="5" fill="#AADD00"/>
+        <text x="428" y="112" text-anchor="start" font-size="9" font-weight="700" fill="#fff" font-family="Inter,sans-serif">HOMÚN Y</text>
+        <text x="428" y="123" text-anchor="start" font-size="9" font-weight="700" fill="#fff" font-family="Inter,sans-serif">CUZAMÁ</text>
+        <text x="428" y="133" text-anchor="start" font-size="8" fill="#666" font-family="Inter,sans-serif">cenotes</text>
+      </g>
+      <!-- CELESTUN: flamingo -->
+      <g id="mp-celestun" style="cursor:pointer" onclick="mpSel('celestun')">
+        <ellipse cx="112" cy="198" rx="9" ry="6" fill="none" stroke="#E84393" stroke-width="1.2" transform="rotate(-20,112,198)"/>
+        <path d="M108,194 Q104,186 108,180 Q112,175 110,172" fill="none" stroke="#E84393" stroke-width="1.4"/>
+        <circle cx="110" cy="170" r="4" fill="none" stroke="#E84393" stroke-width="1.2"/>
+        <path d="M113,169 L120,172 L118,174 L113,171Z" fill="#FFA040" opacity="0.8"/>
+        <line x1="114" y1="204" x2="114" y2="218" stroke="#E84393" stroke-width="1.2"/>
+        <line x1="118" y1="203" x2="117" y2="218" stroke="#E84393" stroke-width="1.2"/>
+        <path d="M114,218 L110,222" stroke="#E84393" stroke-width="1"/>
+        <circle cx="118" cy="230" r="5" fill="#AADD00"/>
+        <text x="68" y="240" text-anchor="middle" font-size="9" font-weight="700" fill="#fff" font-family="Inter,sans-serif">CELESTÚN</text>
+        <text x="68" y="250" text-anchor="middle" font-size="8" fill="#666" font-family="Inter,sans-serif">flamingos</text>
+      </g>
+      <!-- MERIDA: catedral -->
+      <g id="mp-merida" style="cursor:pointer" onclick="mpSel('merida')">
+        <rect x="252" y="157" width="8" height="22" rx="1" fill="none" stroke="#ddd" stroke-width="1.2"/>
+        <rect x="272" y="157" width="8" height="22" rx="1" fill="none" stroke="#ddd" stroke-width="1.2"/>
+        <rect x="255" y="166" width="22" height="13" fill="none" stroke="#ddd" stroke-width="1.2"/>
+        <path d="M258,166 Q268,160 278,166" fill="none" stroke="#ddd" stroke-width="1"/>
+        <polygon points="252,157 256,150 260,157" fill="none" stroke="#ddd" stroke-width="1"/>
+        <polygon points="272,157 276,150 280,157" fill="none" stroke="#ddd" stroke-width="1"/>
+        <line x1="256" y1="150" x2="256" y2="146" stroke="#AADD00" stroke-width="1.2"/>
+        <line x1="254" y1="148" x2="258" y2="148" stroke="#AADD00" stroke-width="1.2"/>
+        <line x1="276" y1="150" x2="276" y2="146" stroke="#AADD00" stroke-width="1.2"/>
+        <line x1="274" y1="148" x2="278" y2="148" stroke="#AADD00" stroke-width="1.2"/>
+        <path d="M264,179 L264,174 Q268,172 272,174 L272,179Z" fill="none" stroke="#ddd" stroke-width="1"/>
+        <circle cx="268" cy="192" r="10" fill="#AADD00" opacity="0.15"/>
+        <circle cx="268" cy="192" r="6" fill="#AADD00"/>
+        <circle cx="268" cy="192" r="2.5" fill="#111"/>
+        <text x="268" y="209" text-anchor="middle" font-size="10" font-weight="700" fill="#AADD00" font-family="Inter,sans-serif">MÉRIDA</text>
+        <text x="268" y="219" text-anchor="middle" font-size="8" fill="#555" font-family="Inter,sans-serif">tu base</text>
+      </g>
+      <!-- IZAMAL: convento -->
+      <g id="mp-izamal" style="cursor:pointer" onclick="mpSel('izamal')">
+        <rect x="356" y="158" width="38" height="18" rx="1" fill="none" stroke="#FFA040" stroke-width="1.2"/>
+        <path d="M362,158 Q362,152 368,152 Q374,152 374,158" fill="none" stroke="#FFA040" stroke-width="1.1"/>
+        <path d="M370,158 Q370,152 376,152 Q382,152 382,158" fill="none" stroke="#FFA040" stroke-width="1.1"/>
+        <rect x="356" y="143" width="10" height="15" rx="1" fill="none" stroke="#FFA040" stroke-width="1.1"/>
+        <polygon points="356,143 361,137 366,143" fill="none" stroke="#FFA040" stroke-width="1"/>
+        <line x1="361" y1="137" x2="361" y2="133" stroke="#FFA040" stroke-width="1"/>
+        <line x1="359" y1="135" x2="363" y2="135" stroke="#FFA040" stroke-width="1"/>
+        <circle cx="375" cy="184" r="5" fill="#AADD00"/>
+        <text x="375" y="162" text-anchor="middle" font-size="9" font-weight="700" fill="#fff" font-family="Inter,sans-serif">IZAMAL</text>
+        <text x="375" y="152" text-anchor="middle" font-size="8" fill="#888" font-family="Inter,sans-serif">ciudad amarilla</text>
+      </g>
+      <!-- CHICHEN: pirámide -->
+      <g id="mp-chichen" style="cursor:pointer" onclick="mpSel('chichen')">
+        <polygon points="462,140 482,168 442,168" fill="none" stroke="#ddd" stroke-width="1.4"/>
+        <line x1="452" y1="154" x2="472" y2="154" stroke="#ddd" stroke-width="0.8" opacity="0.6"/>
+        <line x1="448" y1="160" x2="476" y2="160" stroke="#ddd" stroke-width="0.8" opacity="0.6"/>
+        <line x1="444" y1="165" x2="480" y2="165" stroke="#ddd" stroke-width="0.8" opacity="0.6"/>
+        <rect x="457" y="135" width="10" height="6" rx="1" fill="none" stroke="#ddd" stroke-width="1"/>
+        <circle cx="462" cy="174" r="5" fill="#AADD00"/>
+        <text x="462" y="130" text-anchor="middle" font-size="9" font-weight="700" fill="#fff" font-family="Inter,sans-serif">CHICHÉN ITZÁ</text>
+        <text x="462" y="120" text-anchor="middle" font-size="8" fill="#888" font-family="Inter,sans-serif">maravilla del mundo</text>
+      </g>
+      <!-- VALLADOLID: iglesia -->
+      <g id="mp-valladolid" style="cursor:pointer" onclick="mpSel('valladolid')">
+        <rect x="490" y="203" width="30" height="20" rx="1" fill="none" stroke="#ddd" stroke-width="1.2"/>
+        <rect x="492" y="188" width="10" height="16" rx="1" fill="none" stroke="#ddd" stroke-width="1.2"/>
+        <polygon points="492,188 497,182 502,188" fill="none" stroke="#ddd" stroke-width="1"/>
+        <line x1="497" y1="182" x2="497" y2="178" stroke="#ddd" stroke-width="1"/>
+        <line x1="495" y1="180" x2="499" y2="180" stroke="#ddd" stroke-width="1"/>
+        <path d="M502,223 L502,216 Q505,213 508,216 L508,223" fill="none" stroke="#ddd" stroke-width="1"/>
+        <rect x="513" y="208" width="5" height="6" rx="1" fill="none" stroke="#ddd" stroke-width="0.8"/>
+        <circle cx="505" cy="225" r="5" fill="#AADD00"/>
+        <text x="522" y="235" text-anchor="start" font-size="9" font-weight="700" fill="#fff" font-family="Inter,sans-serif">VALLADOLID</text>
+        <text x="522" y="245" text-anchor="start" font-size="8" fill="#666" font-family="Inter,sans-serif">pueblo mágico</text>
+      </g>
+      <!-- UXMAL: pirámide ovalada -->
+      <g id="mp-uxmal" style="cursor:pointer" onclick="mpSel('uxmal')">
+        <path d="M202,250 Q222,254 224,272 L180,272 Q182,254 202,250Z" fill="none" stroke="#ddd" stroke-width="1.3"/>
+        <line x1="189" y1="260" x2="215" y2="260" stroke="#ddd" stroke-width="0.8" opacity="0.5"/>
+        <line x1="184" y1="266" x2="220" y2="266" stroke="#ddd" stroke-width="0.8" opacity="0.5"/>
+        <rect x="196" y="245" width="12" height="6" rx="1" fill="none" stroke="#ddd" stroke-width="1"/>
+        <circle cx="202" cy="275" r="5" fill="#AADD00"/>
+        <text x="202" y="290" text-anchor="middle" font-size="9" font-weight="700" fill="#fff" font-family="Inter,sans-serif">UXMAL</text>
+        <text x="202" y="300" text-anchor="middle" font-size="8" fill="#666" font-family="Inter,sans-serif">zona arqueológica</text>
+      </g>
+      <!-- BACALAR: palmeras + lago -->
+      <g id="mp-bacalar" style="cursor:pointer" onclick="mpSel('bacalar')">
+        <ellipse cx="492" cy="340" rx="22" ry="8" fill="none" stroke="#5BB8FF" stroke-width="1" opacity="0.6"/>
+        <ellipse cx="492" cy="338" rx="16" ry="5" fill="#5BB8FF" opacity="0.15"/>
+        <line x1="474" y1="340" x2="474" y2="320" stroke="#666" stroke-width="1.2"/>
+        <path d="M474,320 Q466,312 462,315" fill="none" stroke="#4CAF50" stroke-width="1.1"/>
+        <path d="M474,320 Q468,311 474,308" fill="none" stroke="#4CAF50" stroke-width="1.1"/>
+        <path d="M474,320 Q480,312 485,314" fill="none" stroke="#4CAF50" stroke-width="1.1"/>
+        <line x1="510" y1="340" x2="510" y2="320" stroke="#666" stroke-width="1.2"/>
+        <path d="M510,320 Q502,312 498,315" fill="none" stroke="#4CAF50" stroke-width="1.1"/>
+        <path d="M510,320 Q510,309 516,307" fill="none" stroke="#4CAF50" stroke-width="1.1"/>
+        <path d="M510,320 Q516,312 520,314" fill="none" stroke="#4CAF50" stroke-width="1.1"/>
+        <circle cx="492" cy="357" r="5" fill="#AADD00"/>
+        <text x="492" y="372" text-anchor="middle" font-size="9" font-weight="700" fill="#fff" font-family="Inter,sans-serif">BACALAR</text>
+        <text x="492" y="382" text-anchor="middle" font-size="8" fill="#666" font-family="Inter,sans-serif">lago 7 colores</text>
+      </g>
+      <!-- brújula -->
+      <g transform="translate(638,36)">
+        <circle cx="0" cy="0" r="14" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1"/>
+        <text x="0" y="-5" text-anchor="middle" font-size="8" font-weight="700" fill="#AADD00" font-family="Inter,sans-serif">N</text>
+        <path d="M0,-11 L2.5,-2 L0,2 L-2.5,-2 Z" fill="#AADD00"/>
+        <path d="M0,11 L2.5,2 L0,-2 L-2.5,2 Z" fill="#333"/>
+      </g>
+      <text x="26" y="36" font-size="11" font-weight="700" fill="#AADD00" font-family="Inter,sans-serif" letter-spacing="2">PENÍNSULA</text>
+      <text x="26" y="50" font-size="11" font-weight="700" fill="#AADD00" font-family="Inter,sans-serif" letter-spacing="2">YUCATECA</text>
+    </svg>
+    <!-- panel info mapa -->
+    <div id="mpInfo" style="background:#1a1a1a;margin:0 14px 14px;border-radius:10px;padding:11px 13px;min-height:52px;border:1px solid #222">
+      <div id="mpName" style="font-size:13px;font-weight:700;color:#fff;margin-bottom:2px">Toca un destino en el mapa 👆</div>
+      <div id="mpSub" style="font-size:11px;color:#666;line-height:1.5">Cada ícono muestra distancia, experiencia y cómo llegar desde Mérida.</div>
+      <div id="mpChips" style="display:flex;gap:4px;flex-wrap:wrap;margin-top:5px"></div>
+    </div>
+    <!-- leyenda -->
+    <div style="display:flex;gap:12px;flex-wrap:wrap;padding:8px 14px 12px;border-top:1px solid #1a1a1a">
+      <div style="display:flex;align-items:center;gap:4px;font-size:9px;color:#444;font-weight:600;letter-spacing:.04em;text-transform:uppercase"><div style="width:9px;height:9px;border-radius:50%;background:#AADD00;border:2px solid #fff"></div> Mérida</div>
+      <div style="display:flex;align-items:center;gap:4px;font-size:9px;color:#444;font-weight:600;letter-spacing:.04em;text-transform:uppercase"><div style="width:7px;height:7px;border-radius:50%;background:#AADD00"></div> Destino</div>
+      <div style="display:flex;align-items:center;gap:4px;font-size:9px;color:#444;font-weight:600;letter-spacing:.04em;text-transform:uppercase"><div style="width:14px;height:1px;border-top:1.5px dashed #333"></div> Ruta sugerida</div>
+    </div>
   </div>
 
   <!-- PROGRESO -->
@@ -263,6 +453,34 @@ body{font-family:'Inter',-apple-system,sans-serif;color:var(--ink);font-size:14p
       <a class="afil-btn" href="#" target="_blank">🎟️ Reservar tour · Viator</a>
     </div>
     <div class="tip-box">🤫 <strong>Tip:</strong> Entre semana hay mucha menos gente. Los mejores mariscos están en Crabster Seafood o Eladio's Bar Progreso. El malecón al atardecer es de otro nivel.</div>
+  </div>
+
+  <!-- EL CUYO -->
+  <div class="salida-card">
+    <div class="salida-head">
+      <div class="salida-ico">🎣</div>
+      <div>
+        <div class="salida-title">El Cuyo</div>
+        <div class="salida-sub">~3 hrs desde Mérida · Puerto pesquero secreto</div>
+      </div>
+    </div>
+    <div class="chip-row" style="margin-bottom:8px">
+      <span class="chip green">1–2 días</span>
+      <span class="chip blue">Off the beaten path</span>
+      <span class="chip gold">Playa virgen</span>
+    </div>
+    <div class="salida-body">Uno de los secretos mejor guardados de Yucatán. Pueblo de pescadores de apenas 1,750 habitantes en el extremo noreste del estado, casi en los límites con Quintana Roo. Playa virgen prácticamente sin turistas, mariscos fresquísimos directo de los pescadores y una tranquilidad que ya no se encuentra en casi ningún destino de México. Para los que quieren lo auténtico de verdad.</div>
+    <div class="section-hdr">Cómo llegar</div>
+    <div class="transport-row">
+      <span class="trans-pill trans-ado">🚌 ADO hasta Tizimín + combi local · ~3 hrs</span>
+      <span class="trans-pill trans-car">🚗 Carretera libre vía Tizimín · ~3 hrs sin cuota</span>
+    </div>
+    <div class="salida-links">
+      <a class="lb lb-m" href="https://maps.app.goo.gl/PzrYfAjdGFWzJn2q9" target="_blank">📍 Maps</a>
+      <a class="lb lb-t" href="https://www.ado.com.mx" target="_blank">🚌 ADO horarios</a>
+      <a class="afil-btn" href="#" target="_blank">🎟️ Tour · Viator</a>
+    </div>
+    <div class="tip-box">🤫 <strong>Tip:</strong> No hay muchos servicios turísticos — lleva efectivo, protector solar y actitud de aventurero. Los mejores mariscos los consigues directamente con los pescadores en el muelle por las mañanas. Ideal combinarlo con Las Coloradas (las lagunas rosas) que están a muy poca distancia.</div>
   </div>
 
   <!-- HOMUN Y CUZAMA -->
@@ -896,6 +1114,32 @@ const PREP_CATS = [
 ];
 
 // ════════ INIT ════════
+// ════════ MAPA SALIDAS ════════
+const MP_DATA = {
+  merida:{name:'🏛️ Mérida — Tu base',sub:'La capital de Yucatán. Todo sale y regresa desde aquí. Centro histórico, gastronomía de clase mundial y la mejor vibra de México.',chips:[{t:'Base del itinerario',c:'ch-g'},{t:'5 días',c:'ch-b'}]},
+  progreso:{name:'🌊 Puerto Progreso',sub:'35 min de Mérida. Malecón, mariscos fresquísimos, El Corchito y el museo del meteorito de Chicxulub.',chips:[{t:'~35 min',c:'ch-g'},{t:'Medio día',c:'ch-b'},{t:'ADO ~$80 MXN',c:'ch-y'}]},
+  cuyo:{name:'🎣 El Cuyo — Pueblo pesquero',sub:'Secreto del noreste. Puerto de pescadores con playa virgen, mariscos directos del muelle y cero turistas. Lo más auténtico de la guía. Cerca de Las Coloradas.',chips:[{t:'~3 hrs',c:'ch-g'},{t:'1–2 días',c:'ch-b'},{t:'Off the beaten path',c:'ch-y'}]},
+  homun:{name:'💧 Homún y Cuzamá — Cenotes',sub:'Troncomóvil jalado por caballos hasta 3 cenotes espectaculares. Chelentún, Bolonchojol y Chansinic\'ché. Agua turquesa pura.',chips:[{t:'~45 min',c:'ch-g'},{t:'Medio día',c:'ch-b'},{t:'~$300 MXN',c:'ch-y'}]},
+  celestun:{name:'🦩 Celestún — Flamingos',sub:'La colonia de flamencos más grande de México en lancha por manglares. Playa tranquila, mariscos baratos y naturaleza sin filtros.',chips:[{t:'~1.5 hrs',c:'ch-g'},{t:'1 día',c:'ch-b'},{t:'ADO ~$100 MXN',c:'ch-y'}]},
+  izamal:{name:'💛 Izamal — Ciudad amarilla',sub:'Todo pintado de amarillo. Convento construido sobre pirámide maya, calesas y calles de cuento. Pueblo Mágico a 1.5 hrs.',chips:[{t:'~1.5 hrs',c:'ch-g'},{t:'Medio día',c:'ch-b'},{t:'ADO ~$80 MXN',c:'ch-y'}]},
+  chichen:{name:'🏛️ Chichén Itzá',sub:'Una de las 7 maravillas del mundo moderno. El Castillo de Kukulkán, el Cenote Sagrado y el Juego de Pelota. Llega antes de las 9am.',chips:[{t:'~2 hrs',c:'ch-g'},{t:'1 día',c:'ch-b'},{t:'ADO ~$200 MXN',c:'ch-y'}]},
+  valladolid:{name:'🏙️ Valladolid',sub:'Ciudad colonial preciosa con cenote dentro de la ciudad. A 30 min el Cenote Samulá, uno de los más impresionantes del estado.',chips:[{t:'~2 hrs',c:'ch-g'},{t:'1 día',c:'ch-b'},{t:'ADO ~$180 MXN',c:'ch-y'}]},
+  uxmal:{name:'🏺 Uxmal — Zona Arqueológica',sub:'Más impresionante que Chichén y con mucha menos gente. La Pirámide del Adivino tiene forma ovalada única en el mundo maya.',chips:[{t:'~1 hr',c:'ch-g'},{t:'1 día',c:'ch-b'},{t:'ADO ~$120 MXN',c:'ch-y'}]},
+  bacalar:{name:'🏖️ Bacalar — Lago 7 colores',sub:'La laguna más bonita de México. Agua en 7 tonos de azul y turquesa. Toma el ADO nocturno y despierta en el paraíso.',chips:[{t:'~4–5 hrs',c:'ch-g'},{t:'2–3 días ideal',c:'ch-b'},{t:'ADO ~$450 MXN',c:'ch-y'}]}
+};
+function mpSel(id){
+  const d=MP_DATA[id]; if(!d) return;
+  document.getElementById('mpName').textContent=d.name;
+  document.getElementById('mpSub').textContent=d.sub;
+  const style=`font-size:9px;font-weight:700;padding:2px 7px;border-radius:7px;`;
+  const colors={
+    'ch-g':'background:#1a2a00;color:#AADD00;border:1px solid #3a5000',
+    'ch-y':'background:#2a1a00;color:#FFA040;border:1px solid #7a4400',
+    'ch-b':'background:#001a33;color:#5BB8FF;border:1px solid #003366'
+  };
+  document.getElementById('mpChips').innerHTML=d.chips.map(c=>`<span style="${style}${colors[c.c]}">${c.t}</span>`).join('');
+}
+
 function init(){
   buildDayNav();
   renderDayView(0);
